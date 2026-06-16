@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taqwa Online Services</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #2c3e50;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar h2 {
+            color: #f1c40f;
+        }
+
+        .menu a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f1c40f;
+        }
+
+        /* SPA Sections Management */
+        .section {
+            display: none;
+            padding: 40px 20px;
+            min-height: 75vh;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 25px;
+            margin: 8px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-primary {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1a252f;
+        }
+
+        .btn-secondary {
+            background: #f1c40f;
+            color: black;
+        }
+
+        .btn-secondary:hover {
+            background: #d4ac0d;
+        }
+
+        .btn-submit {
+            background: #27ae60;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background: #219653;
+        }
+
+        /* Box Forms styling */
+        .form-container {
+            max-width: 550px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
+        /* About & Contact Cards */
+        .info-card {
+            background: white;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* Data list styling */
+        .data-item {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>Taqwa Online Setu</h2>
+        <div class="menu">
+            <a onclick="showSection('home')">Home</a>
+            <a onclick="showSection('about')">About Us</a>
+            <a onclick="showSection('birth-death')">Birth & Death</a>
+            <a onclick="showSection('marriage')">Marriage Certificate</a>
+            <a onclick="showSection('contact')">Contact</a>
+            <a onclick="showSection('view-data')" style="color: #f1c40f;">View Requests</a>
+        </div>
+    </div>
+
+    <!-- 1. HOME / HERO SECTION -->
+    <div id="home" class="section active" style="padding:0;">
+        <div class="hero">
+            <h1>Taqwa Online Services</h1>
+            <img src="Taqwa logo.png" width="120" alt="Taqwa Logo" onerror="this.src='https://via.placeholder.com/120?text=Taqwa+Logo'">
+            <p>Your Trusted Partner for Documentations, Certificates & Corrections</p>
+            <div>
+                <button class="btn btn-primary" onclick="showSection('birth-death')">Apply Birth/Death</button>
+                <button class="btn btn-secondary" onclick="showSection('marriage')">Apply Marriage Certificate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. ABOUT SECTION -->
+    <div id="about" class="section">
+        <div class="info-card">
+            <h2>About Taqwa Online Services</h2>
+            <p style="margin-top: 15px; line-height: 1.6;">
+                We offer fast, seamless, and accurate processing for critical legal document handling. 
+                Whether you need a new registration, quick error correction, or assistance tracking down public records, we handle the hard work for you safely online.
+            </p>
+            <h3 style="margin-top:20px; color:#2c3e50;">Our Services:</h3>
+            <p style="margin-top:5px;">✓ Birth Certificate (New / Correction)</p>
+            <p>✓ Death Certificate (New / Correction)</p>
+            <p>✓ Marriage Certificate Assistance</p>
+        </div>
+    </div>
+
+    <!-- 3. BIRTH & DEATH CERTIFICATE FORM -->
+    <div id="birth-death" class="section">
+        <div class="form-container">
+            <h2>Birth & Death Certificate Form</h2>
+            <form id="birthDeathForm" onsubmit="saveData(event, 'Birth/Death')">
+                <div class="form-group">
+                    <label>Application Type</label>
+                    <select id="bd_service_type" required>
+                        <option value="Birth Certificate - New">New Birth Certificate</option>
+                        <option value="Birth Certificate - Correction">Birth Certificate Correction</option>
+                        <option value="Death Certificate - New">New Death Certificate</option>
+                        <option value="Death Certificate - Correction">Death Certificate Correction</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Applicant/Full Name</label>
+                    <input type="text" id="bd_name" placeholder="Enter Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Father's / Husband's Name</label>
+                    <input type="text" id="bd_father" placeholder="Enter Father's/Husband's Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="bd_mobile" placeholder="Enter Mobile Number" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label>Upload Documents (WhatsApp/Email Copy Reference)</label>
+                    <input type="text" id="bd_docs" placeholder="e.g., Aadhaar Card, Hospital Receipt, LC" required>
+                    <small style="color: #e74c3c;">*Note: Please send clear photos of documents via WhatsApp after submitting.</small>
+                </div>
+                <button type="submit" class="btn btn-submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 4. MARRIAGE CERTIFICATE FORM -->
+    <div id="marriage" class="section">
+        <div class="form-container">
+            <h2>Marriage Certificate Application</h2>
+            <form id="marriageForm" onsubmit="saveData(event, 'Marriage')">
+                <div class="form-group">
+                    <label>Husband's Full Name</label>
+                    <input type="text" id="m_husband" placeholder="Groom's Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Wife's Full Name</label>
+                    <input type="text" id="m_wife" placeholder="Bride's Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="m_mobile" placeholder="Primary Mobile Number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label>Marriage Date</label>
+                    <input type="date" id="m_date" required>
+                </div>
+                <div class="form-group">
+                    <label>Required Documents Reference</label>
+                    <input type="text" id="m_docs" placeholder="e.g., Nikahnama, Aadhaar both sides, Photos" required>
+                </div>
+                <button type="submit" class="btn btn-submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 5. CONTACT SECTION -->
+    <div id="contact" class="section">
+        <div class="info-card">
+            <h2>Contact Us</h2>
+            <p style="font-size: 20px; font-weight: bold; margin: 15px 0; color: #2c3e50;">Mr. Mubin Durugkar</p>
+            <img src="Mubin.png" width="120" alt="Mr. Mubin" style="border-radius: 50%; margin-bottom: 15px;" onerror="this.src='https://via.placeholder.com/120?text=Mubin+Sir'">
+            <p style="font-size: 18px; margin: 8px 0;">📞 7972936161 / 7666001318</p>
+            <p style="font-size: 18px; color: #2980b9;">📧 durugkarmubin01@gmail.com</p>
+            <p style="margin-top:15px; font-size:14px; color:#7f8c8d;">Solapur, Maharashtra</p>
+        </div>
+    </div>
+
+    <!-- 6. DATA VIEW SECTION (Saved Admissions/Requests) -->
+    <div id="view-data" class="section">
+        <div class="form-container" style="max-width: 700px;">
+            <h2>Submitted Applications Log</h2>
+            <div id="requests_list">No applications submitted yet.</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2026 Taqwa Online Services. All Rights Reserved.</p>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // PAGE SWITCH ROUTING
+        function showSection(sectionId) {
+            let sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+
+            if (sectionId === "view-data") {
+                loadSubmittedData();
+            }
+            // Scroll to top on switch
+            window.scrollTo(0, 0);
+        }
+
+        // SAVE DATA FUNCTION
+        function saveData(event, moduleType) {
+            event.preventDefault(); // Form reload prevent code
+
+            let newApplication = {};
+
+            if (moduleType === 'Birth/Death') {
+                newApplication = {
+                    category: document.getElementById("bd_service_type").value,
+                    primaryName: document.getElementById("bd_name").value,
+                    secondaryName: document.getElementById("bd_father").value,
+                    mobile: document.getElementById("bd_mobile").value,
+                    docs: document.getElementById("bd_docs").value,
+                    date: new Date().toLocaleDateString()
+                };
+                document.getElementById("birthDeathForm").reset();
+            } 
+            else if (moduleType === 'Marriage') {
+                newApplication = {
+                    category: "Marriage Certificate",
+                    primaryName: "Husband: " + document.getElementById("m_husband").value,
+                    secondaryName: "Wife: " + document.getElementById("m_wife").value,
+                    mobile: document.getElementById("m_mobile").value,
+                    docs: document.getElementById("m_docs").value,
+                    date: "Marriage Date: " + document.getElementById("m_date").value
+                };
+                document.getElementById("marriageForm").reset();
+            }
+
+            // Fetch and append to localStorage
+            let existingRequests = JSON.parse(localStorage.getItem("taqwa_requests")) || [];
+            existingRequests.push(newApplication);
+            localStorage.setItem("taqwa_requests", JSON.stringify(existingRequests));
+
+            alert("Application Form Saved Successfully! Please forward your physical/scanned copies to Mr. Mubin via WhatsApp.");
+            showSection('home');
+        }
+
+        // LOAD DATA FUNCTION
+        function loadSubmittedData() {
+            let container = document.getElementById("requests_list");
+            let data = JSON.parse(localStorage.getItem("taqwa_requests")) || [];
+
+            if (data.length === 0) {
+                container.innerHTML = "<p style='text-align:center; color:gray;'>No records found in local storage.</p>";
+                return;
+            }
+
+            container.innerHTML = data.map((item, index) => `
+                <div class="data-item">
+                    <span style="float:right; background:#2c3e50; color:#fff; padding:2px 8px; font-size:11px; border-radius:3px;">ID: #${index + 1}</span>
+                    <h4 style="color:#d35400; margin-bottom:5px;">${item.category}</h4>
+                    <p><strong>Name:</strong> ${item.primaryName}</p>
+                    <p><strong>Relative/Spouse:</strong> ${item.secondaryName}</p>
+                    <p><strong>Mobile:</strong> ${item.mobile}</p>
+                    <p><strong>Documents Checked:</strong> ${item.docs}</p>
+                    <p style="font-size:12px; margin-top:5px; color:gray;"><strong>Submitted on:</strong> ${item.date}</p>
+                </div>
+            `).join("");
+        }
+    </script>
+
+</body>
+</html>
